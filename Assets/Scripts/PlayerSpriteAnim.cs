@@ -12,16 +12,13 @@ public class PlayerSpriteAnim : MonoBehaviour
     void Start()
     {
         mat = GetComponent<Renderer> ().material;
-        // Texture2D[] frames = { (Texture2D) Resources.Load("Assets/Materials/Player01.PNG"), (Texture2D) Resources.Load("Assets/Materials/Player02.PNG") };
     }
 
     // Update is called once per frame
     void Update()
     {
         int index = (int)(Time.time * fps);
-        index = index % 2;
-        // index = index % frames.Length;
-        mat.mainTexture = this.frames[index]; // usar en planeObjects
-        //GetComponent<RawImage> ().texture = frames [index];
+        index = index % frames.Length;
+        mat.mainTexture = frames[index]; // usar en planeObjects
     }
 }
