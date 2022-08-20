@@ -155,10 +155,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorwayBlockerPrefab: {fileID: 497534277905537033, guid: e899b33b023b39140839f3507ae4ed0a, type: 3}
+  finalBossPrefab: {fileID: 3983713708897385213, guid: 2e368b1445a38ea42bb6ab93aa3f7c32, type: 3}
   enemies:
   - {fileID: 1209309500078519576, guid: 446ed5eb04eb729478173fecea95f431, type: 3}
   - {fileID: 1259921614109128137, guid: bad7fd9aba62dcd4c805850c46ecbf55, type: 3}
-  isCombat: 0
+  bossRoom: 0
+  currentRoom: 0
 --- !u!65 &638124426
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -302,6 +304,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 593754792, guid: e326df2c5f05b5c44b4b945209662b2b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 958725284, guid: e326df2c5f05b5c44b4b945209662b2b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990555423, guid: e326df2c5f05b5c44b4b945209662b2b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2132137938, guid: e326df2c5f05b5c44b4b945209662b2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

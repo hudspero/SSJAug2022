@@ -10,7 +10,7 @@ public class ProjectileScript : MonoBehaviour
     private GameObject mouseTarget;
     private GameObject playerObject;
     private Vector3 translatePos;
-    private float projectileSpeed = 0.012f;
+    private float projectileSpeed = 0.02f;
 
     // Start is called before the first frame update
     void Start()
