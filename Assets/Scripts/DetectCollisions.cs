@@ -1,5 +1,5 @@
-// Object: Player/Enemy
-// Purpose: Detect if collision occurs, destroy only if incoming object is a Projectile
+// Object: Projectile and EnemyProjectile
+// Purpose: Detect if collision occurs
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,13 +17,15 @@ public class DetectCollisions : MonoBehaviour
     // If a specific projectile enters collision field (Box Collider), destroy the Player/Enemy
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == GameObject.Find("Projectile(Clone)") && (gameObject == GameObject.Find("EnemyD(Clone)") || gameObject == GameObject.Find("EnemyN(Clone)")))
+        if (gameObject == GameObject.Find("Projectile(Clone)") && (other.gameObject == GameObject.Find("EnemyD(Clone)") || other.gameObject == GameObject.Find("EnemyN(Clone)")))
         {
             Destroy(gameObject);
+            Destroy(other.gameObject);
         }
-        else if (other.gameObject == GameObject.Find("EnemyProjectile(Clone)") && gameObject == GameObject.Find("Player"))
+        else if (gameObject == GameObject.Find("EnemyProjectile(Clone)") && other.gameObject == GameObject.Find("Player"))
         {
             Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -1,5 +1,5 @@
 // Object: EnemySpawner
-// Purpose: Spawns enemies only when the player first enters the room
+// Purpose: Spawns enemies only when the player enters the room
 
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +9,9 @@ public class EnemySpawner : MonoBehaviour
 {
     private GameObject playerObject;
     private Collider collider;
+    public GameObject doorwayBlockerPrefab;
     public GameObject[] enemies;
-    public bool spawned = false;
+    public bool isCombat;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +20,19 @@ public class EnemySpawner : MonoBehaviour
         collider = GetComponent<Collider>();
     }
 
-    void OnTriggerEnter(Collider other)
+    // Update is called once per frame
+    void Update()
     {
-        if (other.CompareTag("Player") && spawned == false)
+        if (!GameObject.Find("EnemyD(Clone)") && !GameObject.Find("EnemyN(Clone)"))
         {
-            spawned = true;
+            Destroy(GameObject.Find("DoorwayBlocker(Clone)"));
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
             int roomType = (int)Random.Range(1, 10);
             if (roomType % 2 == 0)
             {
@@ -40,12 +49,13 @@ public class EnemySpawner : MonoBehaviour
     // Spawn a random number of enemies within the Box Collider bounds in that specific spawn grid
     void SpawnEnemies()
     {
+        Instantiate(doorwayBlockerPrefab, transform.position, doorwayBlockerPrefab.transform.rotation);
         int numEnemies = (int)Random.Range(2, 6);
         for (int i=0; i<numEnemies; i++)
         {
             int enemyType = (int)Random.Range(1, 10); // Odd = EnemyD, Even = EnemyN
             float xPos = Random.Range(collider.bounds.min.x, collider.bounds.max.x);
-            float zPos = Random.Range(collider.bounds.max.z, collider.bounds.max.z);
+            float zPos = Random.Range(collider.bounds.min.z, collider.bounds.max.z);
             Vector3 spawnPos = new Vector3(xPos, 0.25f, zPos);
             
             // Update the spawnBox variable to include which room the enemies were spawned in

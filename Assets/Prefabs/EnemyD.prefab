@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1209309500078519579}
   - component: {fileID: 1209309500078519578}
   - component: {fileID: 2117155040562899688}
-  - component: {fileID: 9141137693612717527}
   - component: {fileID: 3455996636845228843}
   m_Layer: 0
   m_Name: EnemyD
@@ -97,18 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9141137693612717527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209309500078519576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9260a6bdbb09caa4dacb49851225ac35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3455996636845228843
 MonoBehaviour:
   m_ObjectHideFlags: 0
