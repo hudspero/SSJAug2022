@@ -27,6 +27,15 @@ public class DetectCollisions : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+        else if (gameObject == GameObject.Find("Projectile(Clone)") && (other.gameObject == GameObject.Find("FinalBoss(Clone)")))
+        {
+            Destroy(gameObject);
+            other.gameObject.GetComponent<FinalBossController>().health -= 1;
+            if (other.gameObject.GetComponent<FinalBossController>().health <= 0)
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
 

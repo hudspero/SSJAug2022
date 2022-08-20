@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3983713708897385201}
   - component: {fileID: 3983713708897385214}
   - component: {fileID: 3983713708897385215}
+  - component: {fileID: -3351566281195543488}
   m_Layer: 0
   m_Name: FinalBoss
-  m_TagString: Enemy
+  m_TagString: FinalBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +96,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3351566281195543488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983713708897385213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c5a0c74e7f03b479b605ed083ce1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnBox: {fileID: 3673466798759745724, guid: a94ccc21bc0dc9f47b685ab208a7a545, type: 3}
+  enemyProjectilePrefab: {fileID: 8721038470259638325, guid: 02d5d4a2116652f4482d4bdf09760fea, type: 3}
+  health: 0

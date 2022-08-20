@@ -1,11 +1,11 @@
-// Object: EnemyD
-// Purpose: Move the enemy by gliding around the room
+// Object: Final Boss
+// Purpose: Control the Final Boss and attack the player
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDController : MonoBehaviour
+public class FinalBossController : MonoBehaviour
 {
     public GameObject spawnBox;
     public GameObject enemyProjectilePrefab;
@@ -14,13 +14,16 @@ public class EnemyDController : MonoBehaviour
     private Vector3 enemyMove;
     private float enemyBoundX = 4.9f;
     private float enemyBoundZ = 4.9f;
-    private float enemySpeed = 1.0f;
-    private float moveInterval = 2.0f;
+    private float enemySpeed = 2.0f;
+    private float moveInterval = 0.75f;
+
+    public int health;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Move", 0, moveInterval);
+        InvokeRepeating("Move", 0.25f, moveInterval);
+        health = 20;
     }
 
     // Update is called once per frame
@@ -42,4 +45,3 @@ public class EnemyDController : MonoBehaviour
         }
     }
 }
-

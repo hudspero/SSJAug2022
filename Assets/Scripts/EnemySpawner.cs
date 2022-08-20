@@ -26,7 +26,8 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameObject.Find("EnemyD(Clone)") && !GameObject.Find("EnemyN(Clone)"))
+        // If the game can't find any enemies, remove the door blocker
+        if (!GameObject.Find("EnemyD(Clone)") && !GameObject.Find("EnemyN(Clone)") && !GameObject.Find("FinalBoss(Clone)"))
         {
             Destroy(GameObject.Find("DoorwayBlocker(Clone)"));
         }
