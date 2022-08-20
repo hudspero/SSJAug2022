@@ -10,14 +10,17 @@ public class EnemySpawner : MonoBehaviour
     private GameObject playerObject;
     private Collider collider;
     public GameObject doorwayBlockerPrefab;
+    public GameObject finalBossPrefab;
     public GameObject[] enemies;
-    public bool isCombat;
+    public int bossRoom, currentRoom;
 
     // Start is called before the first frame update
     void Start()
     {
         playerObject = GameObject.Find("Player");
         collider = GetComponent<Collider>();
+        bossRoom = (int)Random.Range(5, 10); // Rooms until the Final Boss encounter
+        currentRoom = 0; // Tracks what room the player is currently in
     }
 
     // Update is called once per frame
@@ -33,15 +36,25 @@ public class EnemySpawner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            int roomType = (int)Random.Range(1, 10);
-            if (roomType % 2 == 0)
+            currentRoom += 1;
+
+            if (currentRoom >= bossRoom) // If the player reached the final boss room
             {
-                Debug.Log("Puzzle Room");
+                Instantiate(finalBossPrefab, finalBossPrefab.transform.position, finalBossPrefab.transform.rotation);
+                Instantiate(doorwayBlockerPrefab, transform.position, doorwayBlockerPrefab.transform.rotation);
             }
-            else
+            else 
             {
-                Debug.Log("Combat Room");
-                SpawnEnemies();                
+                int roomType = (int)Random.Range(1, 10);
+                if (roomType % 2 == 0)
+                {
+                    Debug.Log("Puzzle Room");
+                }
+                else
+                {
+                    Debug.Log("Combat Room");
+                    SpawnEnemies();                
+                }
             }
         }
     }

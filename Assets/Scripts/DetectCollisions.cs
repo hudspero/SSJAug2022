@@ -17,7 +17,7 @@ public class DetectCollisions : MonoBehaviour
     // If a specific projectile enters collision field (Box Collider), destroy the Player/Enemy
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject == GameObject.Find("Projectile(Clone)") && (other.gameObject == GameObject.Find("EnemyD(Clone)") || other.gameObject == GameObject.Find("EnemyN(Clone)")))
+        if (gameObject == GameObject.Find("Projectile(Clone)") && (other.gameObject == GameObject.Find("EnemyD(Clone)") || other.gameObject == GameObject.Find("EnemyN(Clone)") || other.gameObject == GameObject.Find("FinalBoss(Clone)")))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
